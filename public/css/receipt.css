@@ -1,0 +1,77 @@
+@page {
+  margin: 15px;
+}
+
+body {
+  font-family: "Lato-Bold", sans-serif;
+  font-size: 8px;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.receipt {
+  width: 350px;
+}
+
+.delivery-details {
+  vertical-align: baseline;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.cut-line {
+  border-top: dotted 3px rgba(151, 151, 151, 0.795);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.center {
+  margin: auto;
+  padding: 10px;
+}
+
+.no-border {
+  border: none;
+  vertical-align: baseline;
+}
+
+.border-top-none {
+  border-top: none;
+}
+
+.border-bottom-none {
+  border-bottom: none;
+}
+
+.border-right-none {
+  border-right: none;
+}
+
+.border-left-none {
+  border-left: none;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.align-baseline {
+  vertical-align: baseline;
+}
+

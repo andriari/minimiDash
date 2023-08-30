@@ -1,0 +1,84 @@
+@extends('layouts.app')
+
+@section('title', 'Affiliate | Article')
+
+@section('content')
+<div class="page-header">
+    <h3 class="page-title"> Article </h3>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Affiliate</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Article</li>
+        </ol>
+    </nav>
+</div>
+<!-- <div class="row mb-3">
+    <div class="col-lg">
+        <form class="form-inline" action="{{ url('export/excel') }}" method="POST" id="exportForm">
+            @csrf
+            <input type="hidden" id="menu" name="menu" value="content_post">
+            <button type="submit" class="btn btn-sm btn-gradient-primary btn-icon-text"><i class="mdi mdi-file-export btn-icon-prepend"></i> Export Excel</button>
+        </form>
+    </div>
+</div> -->
+@include('layouts.alert')
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="articleTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>User</th>
+                                <th>Title</th>
+                                <th>Curated</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('script')
+<script>
+    $(document).ready(function() {
+        $('#articleTable').DataTable({
+            processing: true,
+            serverSide: true,
+            searching: true,
+            ajax: "{{ url('affiliate/article/getDtRowData') }}",
+			order: [
+				[0, "desc"]
+			],
+            columns: [{
+                    data: 'created_at'
+                },
+                {
+                    data: 'fullname',
+                    name: 'minimi_user_data.fullname'
+                },
+                {
+                    data: 'content_title'
+                },
+                {
+                    data: 'content_curated'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ]
+        });
+    });
+</script>
+@endpush
